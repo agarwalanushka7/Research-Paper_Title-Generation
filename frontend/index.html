@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Research Title Assistant</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #020617;
+    --card: #0f172a;
+    --text: white;
+    --accent: #6366f1;
+}
+
+body.light {
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --text: #111827;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.app {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 240px;
+    padding: 20px;
+    background: var(--card);
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo {
+    margin-bottom: 20px;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.label {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.toggle button {
+    display: block;
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.toggle .active {
+    background: var(--accent);
+    color: white;
+}
+
+.colors {
+    display: flex;
+    gap: 10px;
+}
+
+.color {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Chat */
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    padding: 16px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.chat {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Message bubbles */
+.msg {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+}
+
+.bot {
+    background: var(--card);
+}
+
+.user {
+    background: var(--accent);
+    margin-left: auto;
+}
+
+/* Input */
+.input-area {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+textarea, input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: var(--card);
+    color: var(--text);
+}
+
+textarea {
+    resize: none;
+    height: 70px;
+}
+
+button {
+    margin-left: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent);
+    color: white;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2 class="logo">⚡ AI Lab</h2>
+
+        <div class="section">
+            <div class="label">Theme</div>
+            <div class="toggle">
+                <button id="lightBtn">☀ Light</button>
+                <button id="darkBtn" class="active">🌙 Dark</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="label">Accent</div>
+            <div class="colors">
+                <div class="color" data-color="#6366f1" style="background:#6366f1"></div>
+                <div class="color" data-color="#22c55e" style="background:#22c55e"></div>
+                <div class="color" data-color="#f97316" style="background:#f97316"></div>
+                <div class="color" data-color="#e11d48" style="background:#e11d48"></div>
+                <div class="color" data-color="#0ea5e9" style="background:#0ea5e9"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat -->
+    <div class="chat-container">
+
+        <div class="header">
+            AI Research Title Assistant
+        </div>
+
+        <div id="chat" class="chat"></div>
+
+        <!-- 🔥 Abstract-friendly input -->
+        <div class="input-area">
+            <textarea id="input" placeholder="Type your answer here..."></textarea>
+            <button id="sendBtn">Send</button>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
